@@ -16,8 +16,21 @@ public class BabysitterTest {
 	}
 	
 	@Test
-	public void whenAStartTimeBefore1700IsEnteredAnErrorMessageReturns() {
+	public void whenAStartTimeBefore1700IsPassedAnErrorMessageReturns() {
 		Babysitter babysitter = new Babysitter();
 		assertEquals("This is too early", babysitter.startTime(1600));
+	}
+	
+	@Test
+	public void whenAnEndTimeOf0400OrEarlierIsPassedThatNumberIsReturned() {
+		Babysitter babysitter = new Babysitter();
+		assertEquals("300", babysitter.endTime(300));
+		assertEquals("2359", babysitter.endTime(2359));
+	}
+	
+	@Test
+	public void whenAnEndTimeAfter0400IsPassedAnErrorMessageReturns() {
+		Babysitter babysitter = new Babysitter();
+		assertEquals("This is too late", babysitter.endTime(500));
 	}
 }

@@ -8,4 +8,11 @@ public class Babysitter {
 
 		return startHour.toString();
 	}
+
+	public String endTime(Integer endHour) {
+		if (endHour > 400 && endHour < 1700)
+			return "This is too late";
+		
+		return endHour.toString();
+	}
 }
